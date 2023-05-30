@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-#=5&i3f%8v-4_zov_y@lx@*$hoc@vvt2&yti&c6x+rbb9!%)e%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,6 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'django.contrib.auth',
+    # 'django.contrib.messages',
+    # 'django.contrib.sites',
+    #
+    # 'allauth',
+    # 'allauth.account',
+    # 'allauth.socialaccount',
 ]
 
 MIDDLEWARE = [
@@ -64,6 +71,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
             ],
         },
     },
@@ -134,6 +142,28 @@ MEDIA_ROOT = os.path.join(
 AUTH_USER_MODEL = 'users.User'
 
 LOGIN_URL = '/users/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+#Mail Sending
+
+DOMAIN_NAME = 'http://localhost:8000'
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+# EMAIL_HOST = 'smtp.yandex.com'
+# EMAIL_PORT = 465
+# EMAIL_HOST_USER = 'server-no-reply'
+# EMAIL_PASSWORD = 'qchykrxloaknzfve'
+# EMAIL_USE_SSL = True
+
+# AUTHENTICATION_BACKENDS = [
+#     # Needed to login by username in Django admin, regardless of `allauth`
+#     'django.contrib.auth.backends.ModelBackend',
+#
+#     # `allauth` specific authentication methods, such as login by e-mail
+#     'allauth.account.auth_backends.AuthenticationBackend',
+# ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
