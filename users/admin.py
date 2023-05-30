@@ -1,9 +1,11 @@
 from django.contrib import admin
-from users.models import User, EmailVerification
+
+from users.models import EmailVerification, User
 
 # Register your models here.
 
 admin.site.register(User)
+
 
 @admin.register(EmailVerification)
 class EmailVerificationAdmin(admin.ModelAdmin):

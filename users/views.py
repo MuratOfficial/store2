@@ -1,13 +1,15 @@
-from django.shortcuts import render, HttpResponseRedirect
-from .forms import UserLoginForm, UserRegistrationForm, UserProfileForm
-from django.contrib.messages.views import SuccessMessageMixin
-from django.urls import reverse, reverse_lazy
-from django.views.generic.edit import CreateView, UpdateView
-from products.models import Basket
 from django.contrib.auth.views import LoginView
+from django.contrib.messages.views import SuccessMessageMixin
+from django.shortcuts import HttpResponseRedirect
+from django.urls import reverse, reverse_lazy
 from django.views.generic.base import TemplateView
-from .models import User, EmailVerification
+from django.views.generic.edit import CreateView, UpdateView
+
 from common.custom import TitleMixin
+from products.models import Basket
+
+from .forms import UserLoginForm, UserProfileForm, UserRegistrationForm
+from .models import EmailVerification, User
 
 
 class LoginUserView(TitleMixin, LoginView):
@@ -33,6 +35,7 @@ class LoginUserView(TitleMixin, LoginView):
 #     }
 #     return render(request, 'users/login.html', context)
 
+
 class UserRegistrationView(SuccessMessageMixin, TitleMixin, CreateView):
     model = User
     form_class = UserRegistrationForm
@@ -40,6 +43,7 @@ class UserRegistrationView(SuccessMessageMixin, TitleMixin, CreateView):
     success_url = reverse_lazy('users:login')
     title = "Store - Регистрация"
     success_message = 'Аккаунт создан успешно!'
+
 
 class UserProfileView(TitleMixin, UpdateView):
     model = User
@@ -84,6 +88,7 @@ class UserProfileView(TitleMixin, UpdateView):
 # def logout(request):
 #     auth.logout(request)
 #     return HttpResponseRedirect(reverse('index'))
+
 
 class EmailVerificationView(TitleMixin, TemplateView):
     title = 'Store - Email Verification'

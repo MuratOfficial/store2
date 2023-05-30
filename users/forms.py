@@ -1,9 +1,13 @@
 import datetime
 import uuid
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
+
 from django import forms
-from users.models import User, EmailVerification
+from django.contrib.auth.forms import (AuthenticationForm, UserChangeForm,
+                                       UserCreationForm)
 from django.utils import timezone
+
+from users.models import EmailVerification, User
+
 
 class UserLoginForm(AuthenticationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Введите имя пользователя"}))
@@ -17,6 +21,7 @@ class UserLoginForm(AuthenticationForm):
         super(UserLoginForm, self).__init__(*args, **kwargs)
         for field_name, filed in self.fields.items():
             filed.widget.attrs['class'] = 'form-control py-4'
+
 
 class UserRegistrationForm(UserCreationForm):
     first_name = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Введите имя"}))
@@ -57,4 +62,5 @@ class UserProfileForm(UserChangeForm):
         for field_name, filed in self.fields.items():
             filed.widget.attrs['class'] = 'form-control py-4'
         self.fields['image'].widget.attrs['class'] = 'custom-file-label'
+
 
