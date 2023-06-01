@@ -8,9 +8,10 @@ class OrderForm(forms.ModelForm):
     last_name = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Иванов'}))
     email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'you@example.com'}))
     address = forms.CharField(widget=forms.TextInput(attrs={
-        'class': 'form-control', 'placeholder': 'Россия, Москва, ул. Мира, дом 6',
+        'class': 'form-control', 'placeholder': 'Казахстан, Шымкент, Казыбек би, 21/7',
     }))
 
     class Meta:
         model = Order
         fields = ('first_name', 'last_name', 'email', 'address')
+

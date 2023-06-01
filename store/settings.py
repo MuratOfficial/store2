@@ -209,6 +209,8 @@ CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379'
 
 STRIPE_PUBLIC_KEY = 'pk_test_51NEAYjHFYOpSZ9DJLMwhOvhEA2nUdg3zIb81w9q3mv96UiGm1MUIvL8J6vRAmjjv0mw8sHQy9ZPo76Uer8ScOHgT00alsm38mj'
 STRIPE_SECRET_KEY = 'sk_test_51NEAYjHFYOpSZ9DJ7Wydo5N9ghIEssj43lpuU6PwRoJXN0WK7kOKP1768fztGsNFG08Nacds4kfavOYZJsZ37gh300GSGpob3j'
+STRIPE_WEBHOOK_SECRET = 'whsec_ce2e22a76edd9f986668481aad215e6ea519c87a61ec2d714d3222eeb72f9cb6'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
