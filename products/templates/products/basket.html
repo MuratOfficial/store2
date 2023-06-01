@@ -37,5 +37,7 @@
                 <h4 class="float-right">{{ total_sum }} tg</h4>
             </div>
         </div>
-        <button type="button" class="btn btn-success btn-lg float-right">Оформить</button>
+        <a class="btn btn-success btn-lg float-right" href="{% url 'orders:order_create' %}">
+        Оформить заказ
+        </a>
 </div>
